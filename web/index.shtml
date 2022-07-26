@@ -1,0 +1,109 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<HTML>
+<HEAD>
+	<LINK rel="stylesheet" type="text/css" href="/style.css">
+</HEAD>	
+<BODY bgcolor=white>
+
+<div align="center"><img src="AstralCafe.jpg" width="86" height="74"/></div>
+
+<p/>
+<h2><img src="AstralCafe-sm.jpg" width="30" height="27">Astral Caf&eacute;</h2>
+<h3>Astronomy components for Java</h3>
+<h4>&nbsp;</h4>
+<h4>Watch the <a href="AstralApplet.php?preloadStars=true">Astral Applet</a> at 
+  work.</h4>
+<p>(it will take a moment to load and initialize)</p>
+<p>This is a demonstration of an applet interacting with servlets, all using the 
+  same code base. The applet either <a href="AstralApplet.php?preloadStars=true">preloads</a> 
+  star data and calculates projections on its own, or <a href="AstralApplet.php">receives 
+  projection data</a> from a servlet each time the user requests a view.</p>
+<p>The applet can also be initialized with quite <a href="AstralApplet.php?preloadStars=true&colorMode=3&dashBoard=false&width=300&height=300&dec=0.0&ra=5.0">a 
+  different appearance</a>.</p>
+<p>For more information, please see <a href="AstralCafe.pdf">AstralCafe.pdf</a>.</p>
+<hr>
+<h3>System Requirements</h3>
+<blockquote>
+<p>Astral Caf&eacute; is being developed using Java 2 and therefore requires Java 2.</p>
+  <p>It may or may not operate on Java 1.1.</p>
+</blockquote>
+<h3>&nbsp;</h3>
+<h3><a href="download/AstralCafe.jar">Download the standalone version</a></h3>
+<blockquote> 
+  <h4><a href="download/AstralCafe.jar">AstralCafe.jar</a></h4>
+  <h4>Other files needed to operate the standalone version</h4>
+  <blockquote> 
+    <pre><a href="download/log4j-1.2.8.jar">log4j-1.2.8.jar</a></pre>
+    <pre><a href="download/stars3k.dat">stars3k.dat</a></pre>
+    <pre><a href="download/links.dat">links.dat</a></pre>
+    <pre><a href="download/AstralCafe.properties">AstralCafe.properties</a></pre>
+    <pre><a href="download/log4j.lcf">log4j.lcf</a></pre>
+  </blockquote>
+  <p>To launch, execute this command:</p>
+  <blockquote> 
+    <pre>java -classpath AstralCafe.jar:log4j-1.2.8.jar AstralCafe AstralCafe.properties</pre>
+  </blockquote>
+</blockquote>
+<h3>Download the <a href="download/AstralCafe-dist.tar.Z">source code</a>.</h3>
+<p>View a basic <a href="AstralCafe-diagram.pdf">diagram</a> of Astral Caf&eacute;.</p>
+<p>View the <a href="javadoc">API documentation</a>.</p>
+<hr>
+<h3><br>
+  Release Notes</h3>
+<h4><br>
+  version 1.0</h4>
+<h3>Functionality implemented</h3>
+<ul>
+  <li>Stars displayed in color.</li>
+  <li>Use scroll bars to change zenith (or part of sky in view).</li>
+  <li>Draw a box to view a portion of the current view.</li>
+  <li>Switch constellations on/off.</li>
+  <li>Use menus to set right ascension, declination, and width of view.</li>
+  <li>Use a popup menu to set brightness of view.</li>
+  <li>Star name display.</li>
+  <li>Monochrome display modes.</li>
+</ul>
+<h3><br>
+  Functionality not yet ported from <em>NightSky</em> to Java</h3>
+<ul>
+  <li>All time-related functionality; automatic scrolling.</li>
+  <li>Planets, Moon, and Sun.</li>
+  <li>Messier objects.</li>
+  <li>Status Bar.</li>
+</ul>
+<h3><br>Functionality in <em>Night Sky,</em> but not planned for Astral Applet</h3>
+<ul>
+  <li>Twilight and Magnitude density display modes.</li>
+  <li>View from Star navigation mode.</li>
+</ul>
+<h4><br>
+  Bugs:</h4>
+<ul>
+  <li>XOR-based drawing (used in response to mouse drags) does not work cleanly 
+    using the J2SE 1.4.1 runtime environment and Safari 1.0.3 (Java 1.3.1 or 1.4.1 
+    Plug-in), but it works fine within IE 5.2/Mac, Netscape 7.1, and OmniWeb 4.2.1. 
+    These latter three environments also provide crisper graphics.</li>
+</ul>
+<ul>
+  <li>Dragging to reframe can cause the projection to be reduced to a point on 
+    rare occasions. This may be more likely within Netscape 7.1.</li>
+</ul>
+<p>&nbsp; </p>
+<center>
+  <hr>
+</center>
+<p align="left">&nbsp;</p>
+
+<DIV ID="footer" ALIGN="left">
+<p>
+Please contact Kaweah Software by email at <a href="mailto:software@kaweah.com">software@kaweah.com</a>.
+</p>
+
+<!--#config timefmt="%d %B %Y"-->
+<p><font color="gray">
+This file was last modifed on <!--#flastmod file="index.shtml"-->.
+</font></p>
+</DIV>
+
+</BODY>
+</HTML>

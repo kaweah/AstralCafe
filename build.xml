@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<project name="LiveStock" default="dist" basedir=".">
+    <description>
+        Build file to be used with Apache Ant
+    </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="dist"  location="dist"/>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init"
+        description="compile the source " >
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac srcdir="${src}" destdir="${build}">
+        <classpath>
+            <pathelement path="lib/Jama-1.0.2.jar"/>
+            <pathelement path="lib/jgoodie/forms.jar"/>
+            <pathelement path="lib/jcommon-1.0.16.jar"/>
+            <pathelement path="lib/jcalendar-1.3.3.jar"/>
+            <pathelement path="lib/log4j-1.2.8.jar"/>
+            <pathelement path="lib/swing-worker-1.2.jar"/>
+            <pathelement path="lib/sqlite-jdbc-3.6.20.jar"/>
+        </classpath>
+    </javac>
+  </target>
+
+  <target name="dist" depends="compile"
+        description="generate the executable jar" >
+    <!-- Put everything in ${build} into the AstralCafe.jar file -->
+    <jar jarfile="AstralCafe.jar" basedir="${build}">
+	  <zipfileset dir="${build}" prefix="" />
+	  <zipfileset src="lib/Jama-1.0.2.jar" />
+   	  <zipfileset src="lib/swing-worker-1.2.jar" />
+    </jar>
+  </target>
+
+  <target name="applet" depends="compile"
+        description="generate the applet jar" >
+    <!-- Put everything excluding app classes into the AstralApplet.jar file -->
+    <jar jarfile="AstralApplet.jar">     
+        <fileset dir="${build}" casesensitive="yes">
+          <exclude name="**/app/*.class"/>
+            <include name="**/*.class"/>
+        </fileset>
+	  <zipfileset dir="${build}" prefix="" />
+	  <zipfileset src="lib/Jama-1.0.2.jar" />
+   	  <zipfileset src="lib/swing-worker-1.2.jar" />
+    </jar>
+  </target>
+
+  <target name="clean"
+        description="clean up" >
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
+</project>
